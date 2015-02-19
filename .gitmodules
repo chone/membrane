@@ -1,0 +1,12 @@
+[submodule "closure-library"]
+	path = closure-library
+	url = git@github.com:chone/closure-library.git
+[submodule "closure-templates"]
+	path = closure-templates
+	url = git@github.com:chone/closure-templates.git
+[submodule "closure-stylesheets"]
+	path = closure-stylesheets
+	url = git@github.com:chone/closure-stylesheets.git
+[submodule "closure-compiler"]
+	path = closure-compiler
+	url = git@github.com:chone/closure-compiler.git
