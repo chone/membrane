@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+    (function() {
+      var query = location.search;
+      var matcher = /namespace=([^&\/]*)/.exec(query);
+      var namespace;
+      if (matcher && matcher[0]) {
+        namespace = matcher[1];
+        if(!/\.main/.exec(namespace)) {
+          namespace = namespace + '.main';
+        }
+        window.namespace = namespace;
+        window.template = namespace.replace('.', '.templates.')
+          .replace('.main', '');
+        window.data = namespace.replace('.', '.data.');
+
+        matcher = /css=([^&\/]*)/.exec(query);
+        if (matcher && matcher[1] && matcher[1] == 'no') {
+        } else {
+          var cssFile = '../' + namespace.replace('.', '.css.').replace(/\./g, '/') 
+            + '.css';
+          document.write('<link rel="stylesheet" href="' + cssFile + '">');
+        }
+      } else {
+      }
+
+      matcher = /template=([^&\/]*)/.exec(query);
+      if (matcher && matcher[1] && matcher[1] == 'no') {
+        window.hasTemplate = false;
+      } else {
+        window.hasTemplate = true;
+      }
+    })();
+    </script>
+    <script src="closure-library/closure/goog/base.js"></script>
+    <script src="../web/deps.js"></script>
+    <script>
+      goog.require(namespace);    
+    </script>
+  </head>
+  <body>
+    <script>
+      if (hasTemplate) {
+        goog.require(template);
+        goog.require(data);
+      }
+    </script>
+    <script>
+      if (hasTemplate) {
+        document.write(goog.getObjectByName(template).main(
+          goog.getObjectByName(data)
+        ));
+      }
+    </script>
+    <script>main();</script> 
+  </body>    
+</html>
