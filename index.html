@@ -50,7 +50,7 @@
     </script>
     <script>
       if (hasTemplate) {
-        document.write(goog.getObjectByName(template).main(
+        document.write(goog.getObjectByName(template)['desktop'](
           goog.getObjectByName(data)
         ));
       }
