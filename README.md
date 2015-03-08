@@ -6,9 +6,9 @@ It a intergrated environment based on command line and runing in Windows, Mac OS
 ## How to use?
 
 1. Create project directory and initialize with git.
-$ mkdir my-project
-$ cd my-project
-$ git init
+  $ mkdir my-project
+  $ cd my-project
+  $ git init
 
 2. Add membrane in your project.
 $ git submodule add https://github.com/chone/membrane.git
