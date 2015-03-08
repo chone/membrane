@@ -2,7 +2,7 @@
 
 mem=`dirname $0`
 
-ls $mem/../web/templates/*.soy | \
+find $mem/../ | grep -E ".*\.soy$" | \
   xargs java -jar $mem/closure-templates/SoyToJsSrcCompiler.jar \
     --shouldProvideRequireSoyNamespaces \
     --codeStyle concat \
