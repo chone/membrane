@@ -19,14 +19,14 @@ $ ./membrane/init.sh
 1. Create a template for your page.
 my-project/web/templates/hello.soy
 
-  {namespace web.templates.hello}
+    {namespace web.templates.hello}
 
-  /**
-   * @param text
-   */
-  {template .desktop}
-    Hello {$text}!
-  {/template}
+    /**
+     * @param text
+     */
+    {template .desktop}
+      Hello {$text}!
+    {/template}
 
 2. Compile template.
 $ membrane/soy.sh
